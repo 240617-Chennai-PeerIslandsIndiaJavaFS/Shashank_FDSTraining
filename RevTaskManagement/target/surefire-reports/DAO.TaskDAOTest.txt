@@ -1,0 +1,67 @@
+-------------------------------------------------------------------------------
+Test set: DAO.TaskDAOTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.148 s <<< FAILURE! -- in DAO.TaskDAOTest
+DAO.TaskDAOTest.testUpdateTaskStatusAndTimeline -- Time elapsed: 0.044 s <<< ERROR!
+org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Column "STATUS" not found; SQL statement:
+INSERT INTO tasks (task_id, task_name, assigned_to, status, task_start_date, task_end_date) VALUES (1, 'Test Task', 1, 'Pending', '2024-07-09', '2024-07-20') [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.command.Parser.parseColumn(Parser.java:1450)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1435)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1804)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at DAO.TaskDAOTest.setUp(TaskDAOTest.java:40)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+DAO.TaskDAOTest.testCreateTask -- Time elapsed: 0.040 s <<< ERROR!
+org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "TASKS" already exists; SQL statement:
+CREATE TABLE tasks (task_id INT PRIMARY KEY, project_id INT, assigned_to INT, task_name VARCHAR(100), task_description TEXT, task_status VARCHAR(50), progress_description TEXT, task_start_date DATE, task_end_date DATE) [42101-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at DAO.TaskDAOTest.setUp(TaskDAOTest.java:30)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+DAO.TaskDAOTest.testGetTasksByUserId -- Time elapsed: 0.056 s <<< ERROR!
+org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "TASKS" already exists; SQL statement:
+CREATE TABLE tasks (task_id INT PRIMARY KEY, project_id INT, assigned_to INT, task_name VARCHAR(100), task_description TEXT, task_status VARCHAR(50), progress_description TEXT, task_start_date DATE, task_end_date DATE) [42101-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:89)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at DAO.TaskDAOTest.setUp(TaskDAOTest.java:30)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
